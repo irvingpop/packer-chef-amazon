@@ -2,9 +2,14 @@
 
 The goal of these packer builds is to create consistent Vagrant boxes across multiple vagrant providers, specifically for Percona vagrant usage.  Currently only Virtualbox and EC2 are supported.
 
+These setups are typically for the purposes of internal testing and demonstration purposes and don't necessarily reflect recommended production settings.  
+
 ## Setup
 
 * Packer 0.1.4+: http://packer.io
+* AWS account with standard access credentials: http://aws.amazon.com (optional)
+* Virtualbox http://virtualbox.org (optional)
+* Vagrant: http://vagrantup.com
 
 ### AWS
 
@@ -71,5 +76,6 @@ http://virtualbox.org
 ### Amazon EC2 - EBS AMI
 
 Creates an EBS-based AMI associated with a specific AWS Region.  
+
 
 ### ???
