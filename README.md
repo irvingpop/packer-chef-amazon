@@ -77,4 +77,25 @@ http://virtualbox.org
 
 Creates an EBS-based AMI associated with a specific AWS Region.  
 
+The current instance comes with an extra 20G EBS partion to use for MySQL data.  In the future, it should be possible to configure EBS volumes at the Vagrant level, but until then it will require configuration at the Packer level.
+
+An example of such a configuratuion creating a 100GB volume with 1000 provisioned IOPS:
+
+```javascript
+    "ami_block_device_mappings": [
+      {
+        "device_name": "/dev/sda",
+        "delete_on_termination": true
+      },
+      {
+        "device_name": "/dev/sdf",
+        "virtual_name": "mysql_data",
+        "volume_size": 100,
+        "volume_type": "io1",
+        "iops": 1000,
+        "delete_on_termination": true
+      }
+    ]
+```
+
 ### ???
