@@ -1,6 +1,43 @@
-# Packer 
+# Packer Percona
 
-The goal of these packer builds is to create consistent Vagrant boxes across multiple vagrant providers.  Currently only Virtualbox and EC2 are supported.
+The goal of these packer builds is to create consistent Vagrant boxes across multiple vagrant providers, specifically for Percona vagrant usage.  Currently only Virtualbox and EC2 are supported.
+
+## Setup
+
+* Packer 0.1.4+: http://packer.io
+
+### AWS
+
+Put your access and secret keys in environment variables in your .bashrc or similar (for packer):
+
+```bash
+export AWS_ACCESS_KEY_ID=YOUR_ACCESS_KEY
+export AWS_SECRET_ACCESS_KEY=THE_ASSOCIATED_SECRET_KEY
+```
+
+
+## Building
+
+Currently only CentOS 6 is up to date.  Ubuntu and other Linux types are feasible with Packer.
+
+* Modify centos6.json as desired
+ * Source AMI
+ * Region
+
+```bash
+packer validate centos-6_4-64.json
+packer build centos-6_4-64.json
+vagrant box add centos-6_4-64_percona centos-6_4-64_percona_virtualbox.box
+vagrant box add centos-6_4-64_percona centos-6_4-64_percona_aws.box
+cd ..
+```
+
+This will add boxes for each of the providers packer builds a box for.  You can optionally just build a box for specific provider like this:
+
+```bash
+packer build --only=amazon-ebs centos-6_4-64.json
+```
+
 
 ## Nuances
 
