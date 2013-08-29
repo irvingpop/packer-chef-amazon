@@ -77,5 +77,4 @@ http://virtualbox.org
 
 Creates an EBS-based AMI associated with a specific AWS Region.  
 
-
 ### ???
