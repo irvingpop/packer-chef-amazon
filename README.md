@@ -99,3 +99,10 @@ An example of such a configuratuion creating a 100GB volume with 1000 provisione
 ```
 
 ### ???
+
+## Maintenance
+
+Packer will cruft up your EC2 dashboard.  In particular, pay attention and periodically delete:
+
+* Old AMIs
+* Unused EBS volumes left over from AMI creation
