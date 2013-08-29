@@ -35,16 +35,18 @@
         "delete_on_termination": true
       },
       {
-        "device_name": "/dev/sdf",
+        "device_name": "/dev/sdk",
         "virtual_name": "mysql_data",
-        "volume_size": 100,
-        "volume_type": "io1",
-        "iops": 1000,
+        "volume_size": 20,
         "delete_on_termination": true
       }
     ]
   }],
   "provisioners": [
+    {
+      "type": "shell",
+      "script": "provisioners/no-tty-sudo.sh"
+    },
     {
       "type": "shell",
       "script": "provisioners/prepare-vagrant-ssh-key.sh",
