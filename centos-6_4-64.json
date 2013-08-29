@@ -66,6 +66,10 @@
     },
     {
       "type": "shell",
+      "script": "provisioners/install-puppet.sh"
+    },
+    {
+      "type": "shell",
       "script": "provisioners/clean-empty-space.sh"
     }
   ],
