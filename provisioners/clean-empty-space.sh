@@ -9,6 +9,9 @@ yum clean all
 # Clean out all of the caching dirs
 rm -rf /var/cache/* /usr/share/doc/*
 
-# Clean up unused disk space so compressed image is smaller.
-cat /dev/zero > /tmp/zero.fill
-rm /tmp/zero.fill
+if [ $PACKER_BUILDER_TYPE == "virtualbox" ]
+then
+	# Clean up unused disk space so compressed image is smaller.
+	cat /dev/zero > /tmp/zero.fill
+	rm /tmp/zero.fill
+fi
