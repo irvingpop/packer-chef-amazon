@@ -45,8 +45,31 @@ packer build --only=amazon-ebs centos-6_4-64.json
 * These boxes should be updated to the latest package releases on build
 * An extra device or logical volume is available (and possibly setup) for /var/lib/mysql 
 
-## CentOS 6 builds
+
+## OSes
+
+### CentOS 6 builds
 
 The VM-based builds use a netinstall ISO and a kickstart file to provision the box.   This guarantees all packages are up to date at the time of the build.
 
 AWS uses an official CentOS 6 AMI "with Updates".  http://wiki.centos.org/Cloud/AWS  These are Region-specific, so you'll need a different AMI identifier for different AWS regions.
+
+### Ubuntu 
+
+Needs work
+
+### ???
+
+## Providers
+
+### Virtualbox
+
+Local VM -- a favorite for conference tutorials.  
+
+http://virtualbox.org
+
+### Amazon EC2 - EBS AMI
+
+Creates an EBS-based AMI associated with a specific AWS Region.  
+
+### ???
