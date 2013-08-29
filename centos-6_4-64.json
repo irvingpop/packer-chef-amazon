@@ -72,7 +72,7 @@
   "post-processors": [ 
     { 
       "type": "vagrant",
-      "output": "centos-6_4-64_percona_{{.Provider}}.box"
+      "output": "boxes/centos-6_4-64_percona_{{.Provider}}.box"
     }
   ]
 }
