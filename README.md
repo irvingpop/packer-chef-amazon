@@ -7,9 +7,10 @@ These setups are typically for the purposes of internal testing and demonstratio
 ## Setup
 
 * Packer 0.1.4+: http://packer.io
-* AWS account with standard access credentials: http://aws.amazon.com (optional)
-* Virtualbox http://virtualbox.org (optional)
 * Vagrant: http://vagrantup.com
+* One or all of:
+** AWS account with standard access credentials: http://aws.amazon.com (optional)
+** Virtualbox http://virtualbox.org (optional)
 
 ### AWS
 
