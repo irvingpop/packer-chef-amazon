@@ -6,11 +6,16 @@ These setups are typically for the purposes of internal testing and demonstratio
 
 ## Setup
 
+Required Software:
+
 * Packer 0.1.4+: http://packer.io
 * Vagrant: http://vagrantup.com
-* One or all of:
-** AWS account with standard access credentials: http://aws.amazon.com (optional)
-** Virtualbox http://virtualbox.org (optional)
+
+
+And one or all of the following for the associated box types to get created:
+
+* AWS account with standard access credentials: http://aws.amazon.com (optional)
+* Virtualbox http://virtualbox.org (optional)
 
 ### AWS
 
