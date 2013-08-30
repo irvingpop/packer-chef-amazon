@@ -28,7 +28,7 @@
     "instance_type": "t1.micro",
     "ssh_username": "root",
     "ssh_timeout": "5m",
-    "ami_name": "centos-vagrant {{timestamp}}",
+    "ami_name": "centos-6_4-64_percona {{timestamp}}",
     "ami_block_device_mappings": [
       {
         "device_name": "/dev/sda",
