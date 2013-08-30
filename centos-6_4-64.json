@@ -49,6 +49,10 @@
     },
     {
       "type": "shell",
+      "script": "provisioners/disable-selinux.sh"
+    },
+    {
+      "type": "shell",
       "script": "provisioners/prepare-vagrant-ssh-key.sh",
       "override": {
           "amazon-ebs": {
