@@ -47,6 +47,10 @@
     },
     {
       "type": "shell",
+      "script": "provisioners/ec2-set-device-names.sh"
+    },
+    {
+      "type": "shell",
       "script": "provisioners/prepare-vagrant-ssh-key.sh",
       "override": {
           "amazon-ebs": {

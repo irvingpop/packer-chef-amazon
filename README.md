@@ -85,9 +85,7 @@ http://virtualbox.org
 
 Creates an EBS-based AMI associated with a specific AWS Region.  
 
-The current instance comes with no extra EBS volumes
-
-An example of such a configuratuion creating a 100GB volume with 1000 provisioned IOPS:
+The current instance comes with no extra EBS volumes because these can be added at the Vagrant level.  However, you can create AMIs with the EBS volumes pre-defined.  An example of such a configuratuion creating a 100GB volume with 1000 provisioned IOPS:
 
 ```javascript
     "ami_block_device_mappings": [
