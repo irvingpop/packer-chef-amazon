@@ -56,7 +56,7 @@ Once you are done building boxes, they will be located in the 'boxes' subdir.  Y
 
 * These boxes assume Vagrant is logging in with 'root', not 'vagrant'.
 * These boxes should be updated to the latest package releases on build
-* An extra device or logical volume is available (and possibly setup) for /var/lib/mysql 
+* An extra device or logical volume is available (and possibly setup) for /var/lib/mysql  (note: for AWS you can configure these at the vagrant-aws level now, so we will leave this unset for EC2 instances)
 
 
 ## OSes
@@ -85,7 +85,7 @@ http://virtualbox.org
 
 Creates an EBS-based AMI associated with a specific AWS Region.  
 
-The current instance comes with an extra 20G EBS partion to use for MySQL data.  In the future, it should be possible to configure EBS volumes at the Vagrant level, but until then it will require configuration at the Packer level.
+The current instance comes with no extra EBS volumes
 
 An example of such a configuratuion creating a 100GB volume with 1000 provisioned IOPS:
 

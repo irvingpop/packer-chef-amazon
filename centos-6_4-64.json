@@ -33,12 +33,6 @@
       {
         "device_name": "/dev/sda",
         "delete_on_termination": true
-      },
-      {
-        "device_name": "/dev/sdk",
-        "virtual_name": "mysql_data",
-        "volume_size": 20,
-        "delete_on_termination": true
       }
     ]
   }],
