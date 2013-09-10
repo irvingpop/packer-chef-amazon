@@ -17,7 +17,7 @@ if [ $? ]; then
 	echo "CentOS"
 
 	# Install a few yum plugins
-	yum install -y yum-downloadonly yum-plugin-priorities createrepo
+	yum install -y yum-downloadonly yum-plugin-priorities createrepo wget
 
 	# Create a local repo
 	mkdir -p /var/repo
@@ -41,6 +41,7 @@ if [ $? ]; then
 	# Setup yum repo
 	echo "[local-repo]
 gpgcheck=0
+enabled=0
 name=Local Repo
 baseurl=file:///var/repo
 priority=1" > /etc/yum.repos.d/local.repo

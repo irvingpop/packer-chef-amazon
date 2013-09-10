@@ -57,8 +57,10 @@ Once you are done building boxes, they will be located in the 'boxes' subdir.  Y
 * These boxes assume Vagrant is logging in with 'root', not 'vagrant'.
 * These boxes should be updated to the latest package releases on build
 * An extra device or logical volume is available (and possibly setup) for /var/lib/mysql  (note: for AWS you can configure these at the vagrant-aws level now, so we will leave this unset for EC2 instances)
-* These boxes (at least CentOS) install a local repo that copies all current Percona rpms at the time of the box being created.  This helps with situations where the boxes are used without good internet connections. (i.e., conferences)
 
+### Local Percona package repository
+
+These boxes contain a local repository that is disabled by default containing recent releases of Percona software.  This repo can be enabled for the purposes of using these boxes in situations with poor or no internet connectivity. (E.g., conferences)
 
 ## OSes
 
@@ -67,6 +69,9 @@ Once you are done building boxes, they will be located in the 'boxes' subdir.  Y
 The VM-based builds use a netinstall ISO and a kickstart file to provision the box.   This guarantees all packages are up to date at the time of the build.
 
 AWS uses an official CentOS 6 AMI "with Updates".  http://wiki.centos.org/Cloud/AWS  These are Region-specific, so you'll need a different AMI identifier for different AWS regions.
+
+The local Percona repo is stored in /var/repo and the repo definition is in /etc/yum.repos.d/local.repo.  Change 'enabled' to '1' in that file to use the local repo.
+
 
 ### Ubuntu 
 
