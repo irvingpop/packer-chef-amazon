@@ -72,6 +72,10 @@
     },
     {
       "type": "shell",
+      "script": "provisioners/prepare-local-percona-repo.sh"
+    },
+    {
+      "type": "shell",
       "script": "provisioners/clean-empty-space.sh"
     }
   ],
