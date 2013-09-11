@@ -31,6 +31,10 @@ Vagrant.configure("2") do |config|
 		]
 	end
 
+	config.vm.provider "vmware_fusion" do |v|
+  		v.gui = true
+	end
+
 	# Add provisioner info here
 
 end
