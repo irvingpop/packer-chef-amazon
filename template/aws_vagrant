@@ -1,0 +1,7 @@
+Vagrant.configure("2") do |config|
+  config.vm.provider "aws" do |aws|
+    {{ range $region, $ami := .Images }}
+    aws.region_config "{{ $region }}", ami: "{{ $ami }}"
+    {{ end }}
+  end
+end

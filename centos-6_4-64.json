@@ -34,7 +34,8 @@
         "device_name": "/dev/sda",
         "delete_on_termination": true
       }
-    ]
+    ],
+	"ami_regions": [ "us-west-1", "eu-west-1" ]
   }],
   "provisioners": [
     {
@@ -81,8 +82,12 @@
   ],
   "post-processors": [ 
     { 
-      "type": "vagrant",
-      "output": "boxes/centos-6_4-64_percona_{{.Provider}}.box"
+		"type": "vagrant",
+		"output": "boxes/centos-6_4-64_percona_{{.Provider}}.box",
+		"aws": {
+			"output": "boxes/centos-6_4-64_percona_{{.Provider}}.box",
+			"vagrantfile_template": "template/aws_vagrant"
+		}
     }
   ]
 }
