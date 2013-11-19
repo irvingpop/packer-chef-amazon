@@ -2,7 +2,7 @@
   "builders": [
     { "type": "virtualbox",
       "guest_os_type": "RedHat_64",
-      "headless": "true",
+      "headless": true,
       "iso_urls": [
         "http://mirror.cisp.com/CentOS/6.4/isos/x86_64/CentOS-6.4-x86_64-netinstall.iso",
         "http://mirror.ubiquityservers.com/centos/6.4/isos/x86_64/CentOS-6.4-x86_64-netinstall.iso",
