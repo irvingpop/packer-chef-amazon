@@ -4,7 +4,7 @@
 require 'yaml'
 
 Vagrant.configure("2") do |config|
-	config.vm.box = "centos-6_4-64_percona"
+	config.vm.box = "ubuntu-12_04-64_percona"
 	config.ssh.username = "root"
 
 	config.vm.provider :aws do |aws, override|

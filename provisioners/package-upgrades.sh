@@ -1,10 +1,12 @@
 #!/bin/bash		
 
-# This isn't perfect, but good enough for now
-grep CentOS /etc/issue > /dev/null
-if [ $? ]; then
-	echo "CentOS"
+if [ -x /usr/bin/yum ]; then
+	echo "Yum"
 	yum -y upgrade
+elif [ -x /usr/bin/apt-get ]; then
+	echo "Apt"
+	apt-get update
+	apt-get upgrade -y
 else
 	echo -n "Unhandled OS: "
 	cat /etc/issue

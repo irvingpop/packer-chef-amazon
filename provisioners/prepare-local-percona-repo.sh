@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # This creates a local repo (CentOS/RHEL only for now) of all Percona software 
 # for use in conferences and the like with poor internet connections
@@ -12,8 +12,7 @@
 extrapkgs=( "haproxy" )
 
 # This isn't perfect, but good enough for now
-grep CentOS /etc/issue > /dev/null
-if [ $? ]; then
+if [ -x /usr/bin/yum ]; then
 	echo "CentOS"
 
 	# Install a few yum plugins

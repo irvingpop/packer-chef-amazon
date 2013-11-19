@@ -1,10 +1,11 @@
 #!/bin/bash		
 
-# Saves ~25M
-yum -y remove kernel-devel
-
-# Clean cache
-yum clean all
+if [ -x /usr/bin/yum ]; then
+	# Saves ~25M
+	yum -y remove kernel-devel
+	# Clean cache
+	yum clean all
+fi
 
 # Clean out all of the caching dirs
 rm -rf /var/cache/* /usr/share/doc/*
