@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
-pattern='boxes/(.*)_(.*).box'
+pattern='(.*)_(.*).box'
 
-for box in `ls boxes/*.box`
+for box in `ls *.box`
 do
 	if [[ $box =~ $pattern ]]
 	then
