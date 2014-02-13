@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $PACKER_BUILDER_TYPE == "virtualbox" ]
+if [ $PACKER_BUILDER_TYPE == "virtualbox-iso" ]
 then
 	echo "Installing Vbox Guest Extensions"	
 	# Mount the disk image
