@@ -8,7 +8,7 @@ These setups are typically for the purposes of internal testing and demonstratio
 
 Required Software:
 
-* Packer 0.1.4+: http://packer.io
+* Packer 0.5.1+: http://packer.io
 * Vagrant: http://vagrantup.com
 
 
@@ -36,17 +36,18 @@ Currently only CentOS 6 is up to date.  Ubuntu and other Linux types are feasibl
  * Region
 
 ```bash
-packer validate centos-6_4-64.json
-packer build centos-6_4-64.json
-vagrant box add centos-6_4-64_percona centos-6_4-64_percona_virtualbox.box
-vagrant box add centos-6_4-64_percona centos-6_4-64_percona_aws.box
+packer validate centos-6_5-64.json
+packer build centos-6_5-64.json
+vagrant box add centos-6_5-64_percona centos-6_5-64_percona_virtualbox.box
+vagrant box add centos-6_5-64_percona centos-6_5-64_percona_aws.box
 cd ..
 ```
 
 This will add boxes for each of the providers packer builds a box for.  You can optionally just build a box for specific provider like this:
 
 ```bash
-packer build --only=amazon-ebs centos-6_4-64.json
+packer build --only=virtualbox-iso centos-6_5-64.json
+packer build --only=amazon-ebs centos-6_5-64.json
 ```
 
 Once you are done building boxes, they will be located in the 'boxes' subdir.  You can manually load them using 'vagrant box add' or use the 'load_boxes.sh' to add all boxes and replace any that may already be in Vagrant.
