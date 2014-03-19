@@ -10,7 +10,7 @@
 # - set a local.repo, can be disabled via puppet if desired
 
 importantpkgs=( "Percona-XtraDB-Cluster-full-56" "percona-xtrabackup" "Percona-Server-server-55" "Percona-Server-server-56", "Percona-Server-shared-51" )
-extrapkgs=( "haproxy" )
+extrapkgs=( "haproxy" "xinetd" "keepalived" )
 
 # This isn't perfect, but good enough for now
 if [ -x /usr/bin/yum ]; then
