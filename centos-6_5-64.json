@@ -37,7 +37,7 @@
       ],
       "instance_type": "t1.micro",
       "region": "us-east-1",
-      "source_ami": "ami-eb6b0182",
+      "source_ami": "ami-8997afe0",
       "ssh_timeout": "5m",
       "ssh_username": "root",
       "type": "amazon-ebs"
