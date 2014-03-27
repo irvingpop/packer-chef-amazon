@@ -64,6 +64,10 @@
       "type": "shell"
     },
     {
+      "script": "provisioners/disable-ssh-usedns.sh",
+      "type": "shell"
+    },
+    {
       "script": "provisioners/ec2-set-device-names.sh",
       "type": "shell"
     },
@@ -74,6 +78,10 @@
         }
       },
       "script": "provisioners/prepare-vagrant-ssh-key.sh",
+      "type": "shell"
+    },
+    {
+      "script": "provisioners/prepare-vagrant-user.sh",
       "type": "shell"
     },
     {
