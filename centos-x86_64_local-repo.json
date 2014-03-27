@@ -45,10 +45,10 @@
   ],
   "post-processors": [
     {
-      "output": "boxes/centos-6_5-64_percona_{{.Provider}}.box",
+      "output": "boxes/centos-6_5-64_percona_local-repo_{{.Provider}}.box",
       "override": {
         "aws": {
-          "output": "boxes/centos-6_5-64_percona_{{.Provider}}.box"
+          "output": "boxes/centos-6_5-64_percona_local-repo_{{.Provider}}.box"
         }
       },
       "type": "vagrant"
