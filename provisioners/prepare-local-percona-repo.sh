@@ -59,9 +59,14 @@ priority=1" > /etc/yum.repos.d/local.repo
 
 	# Create disabled yum repo by default
 	createrepo /var/repo
-	echo "[local-repo]
+
+	# Move internet yum repos to /etc/yum.repos.internet
+	mkdir /etc/yum.repos.internet
+	mv /etc/yum.repos.d/* /etc/yum.repos.internet
+
+	echo "[local]
 gpgcheck=0
-enabled=0
+enabled=1
 name=Local Repo
 baseurl=file:///var/repo
 priority=1" > /etc/yum.repos.d/local.repo
