@@ -89,10 +89,6 @@
       "type": "shell"
     },
     {
-      "script": "provisioners/prepare-local-percona-repo.sh",
-      "type": "shell"
-    },
-    {
       "script": "provisioners/remove-extra-locales.sh",
       "type": "shell"
     },
