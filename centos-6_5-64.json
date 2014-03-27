@@ -48,8 +48,7 @@
       "output": "boxes/centos-6_5-64_percona_{{.Provider}}.box",
       "override": {
         "aws": {
-          "output": "boxes/centos-6_5-64_percona_{{.Provider}}.box",
-          "vagrantfile_template": "template/aws_vagrant"
+          "output": "boxes/centos-6_5-64_percona_{{.Provider}}.box"
         }
       },
       "type": "vagrant"
