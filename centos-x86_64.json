@@ -21,7 +21,8 @@
       "shutdown_command": "shutdown -P now",
       "ssh_password": "vagrant",
       "ssh_username": "root",
-      "type": "virtualbox-iso"
+      "type": "virtualbox-iso",
+	  "guest_additions_sha256": "2b31a2b5327ed6babd510ff7edf7deb86c4286e6720357185049bbd1625ca934"
     },
     {
       "ami_block_device_mappings": [
