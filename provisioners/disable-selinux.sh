@@ -1,5 +1,8 @@
-#!/bin/bash		
+#!/bin/bash
 
 if [ -f /etc/selinux/config ]; then
-	sed -i "s/enforcing/permissive/" /etc/selinux/config
+	sudo sed -i "s/enforcing/permissive/" /etc/selinux/config
 fi
+
+sudo service iptables stop
+sudo chkconfig iptables off

@@ -31,16 +31,16 @@
           "device_name": "/dev/sda"
         }
       ],
-      "ami_name": "centos-6_5-64_percona {{timestamp}}",
+      "ami_name": "centos-6_5-64_chef {{isotime | clean_ami_name}}",
       "ami_regions": [
         "us-west-1",
-        "eu-west-1"
+        "us-west-2"
       ],
       "instance_type": "t1.micro",
       "region": "us-east-1",
-      "source_ami": "ami-8997afe0",
+      "source_ami": "ami-52009e3b",
       "ssh_timeout": "5m",
-      "ssh_username": "root",
+      "ssh_username": "ec2-user",
       "type": "amazon-ebs"
     }
   ],
@@ -57,22 +57,6 @@
   ],
   "provisioners": [
     {
-      "script": "provisioners/no-tty-sudo.sh",
-      "type": "shell"
-    },
-    {
-      "script": "provisioners/disable-selinux.sh",
-      "type": "shell"
-    },
-    {
-      "script": "provisioners/disable-ssh-usedns.sh",
-      "type": "shell"
-    },
-    {
-      "script": "provisioners/ec2-set-device-names.sh",
-      "type": "shell"
-    },
-    {
       "override": {
         "amazon-ebs": {
           "script": "provisioners/prepare-ec2-ssh-key.sh"
@@ -82,11 +66,11 @@
       "type": "shell"
     },
     {
-      "script": "provisioners/prepare-vagrant-user.sh",
+      "script": "provisioners/disable-ephemeral-mounts.sh",
       "type": "shell"
     },
     {
-      "script": "provisioners/install-guest-additions.sh",
+      "script": "provisioners/disable-selinux.sh",
       "type": "shell"
     },
     {
@@ -94,11 +78,11 @@
       "type": "shell"
     },
     {
-      "script": "provisioners/install-puppet.sh",
+      "script": "provisioners/install-chef.sh",
       "type": "shell"
     },
     {
-      "script": "provisioners/remove-extra-locales.sh",
+      "script": "provisioners/install-chef-gems.sh",
       "type": "shell"
     },
     {

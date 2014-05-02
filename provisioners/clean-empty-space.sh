@@ -1,4 +1,4 @@
-#!/bin/bash		
+#!/bin/bash
 
 if [ -x /usr/bin/yum ]; then
 	# Saves ~25M
