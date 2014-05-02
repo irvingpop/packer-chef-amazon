@@ -1,6 +1,6 @@
-# Packer Percona
+# Packer Chef
 
-The goal of these packer builds is to create consistent Vagrant boxes across multiple vagrant providers, specifically for Percona vagrant usage.  Currently only Virtualbox and EC2 are supported.
+The goal of these packer builds is to create consistent Vagrant boxes across multiple vagrant providers, specifically for Chef vagrant usage.  Currently only Virtualbox and EC2 are supported.
 
 These setups are typically for the purposes of internal testing and demonstration purposes and don't necessarily reflect recommended production settings.  
 
@@ -35,19 +35,11 @@ Currently only CentOS 6 is up to date.  Ubuntu and other Linux types are feasibl
  * Source AMI
  * Region
 
-```bash
-packer validate centos-6_5-64.json
-packer build centos-6_5-64.json
-vagrant box add centos-6_5-64_percona centos-6_5-64_percona_virtualbox.box
-vagrant box add centos-6_5-64_percona centos-6_5-64_percona_aws.box
-cd ..
-```
 
 This will add boxes for each of the providers packer builds a box for.  You can optionally just build a box for specific provider like this:
 
 ```bash
-packer build --only=virtualbox-iso centos-6_5-64.json
-packer build --only=amazon-ebs centos-6_5-64.json
+packer build --only=amazon-ebs centos-x86_64.json
 ```
 
 Once you are done building boxes, they will be located in the 'boxes' subdir.  You can manually load them using 'vagrant box add' or use the 'load_boxes.sh' to add all boxes and replace any that may already be in Vagrant.
@@ -59,10 +51,6 @@ Once you are done building boxes, they will be located in the 'boxes' subdir.  Y
 * These boxes should be updated to the latest package releases on build
 * An extra device or logical volume is available (and possibly setup) for /var/lib/mysql  (note: for AWS you can configure these at the vagrant-aws level now, so we will leave this unset for EC2 instances)
 
-### Local Percona package repository
-
-These boxes contain a local repository that is disabled by default containing recent releases of Percona software.  This repo can be enabled for the purposes of using these boxes in situations with poor or no internet connectivity. (E.g., conferences)
-
 ## OSes
 
 ### CentOS 6 builds
@@ -71,7 +59,6 @@ The VM-based builds use a netinstall ISO and a kickstart file to provision the b
 
 AWS uses an official CentOS 6 AMI "with Updates".  http://wiki.centos.org/Cloud/AWS  These are Region-specific, so you'll need a different AMI identifier for different AWS regions.
 
-The local Percona repo is stored in /var/repo and the repo definition is in /etc/yum.repos.d/local.repo.  Change 'enabled' to '1' in that file to use the local repo.
 
 
 ### Ubuntu 
