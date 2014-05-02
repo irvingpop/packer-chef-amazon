@@ -35,6 +35,7 @@ Currently only CentOS 6 is up to date.  Ubuntu and other Linux types are feasibl
  * Source AMI
  * Region
 
+Current images are cloned from the Bashton images: http://www.bashton.com/blog/2013/centos-6-4-ami-available/
 
 This will add boxes for each of the providers packer builds a box for.  You can optionally just build a box for specific provider like this:
 
