@@ -19,8 +19,11 @@ syslog_fix_perms: ~
 cloud_init_modules:
  - bootcmd
  - write-files
+ - growpart
  - resizefs
  - set_hostname
+ - update_hostname
+ - update_etc_hosts
  - rsyslog
  - users-groups
  - ssh
@@ -29,6 +32,8 @@ cloud_config_modules:
  - mounts
  - locale
  - set-passwords
+ - yum-add-repo
+ - package-update-upgrade-install
  - timezone
  - puppet
  - chef
@@ -49,9 +54,14 @@ cloud_final_modules:
  - final-message
 
 system_info:
-  distro: rhel
   default_user:
-    name: cloud-user
+    name: ec2-user
+    lock_passwd: true
+    gecos: Cloud User
+    groups: [wheel, adm]
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+    shell: /bin/bash
+  distro: rhel
   paths:
     cloud_dir: /var/lib/cloud
     templates_dir: /etc/cloud/templates
@@ -60,4 +70,13 @@ system_info:
 # vim:syntax=yaml
 EOF
 
+sudo mv /etc/cloud/cloud.cfg /etc/cloud/cloud.cfg.orig
 sudo mv /tmp/cloud.cfg /etc/cloud/cloud.cfg
+
+# failsafe because cloud-init is silly
+echo "`whoami` ALL=(ALL) NOPASSWD:ALL" > /tmp/10-cloud-init-hates-me
+sudo cp /tmp/10-cloud-init-hates-me /etc/sudoers.d/
+sudo cat /etc/sudoers.d/10-cloud-init-hates-me
+
+# grab the latest cloud-init from CentOS
+sudo yum -y install cloud-init || exit 1

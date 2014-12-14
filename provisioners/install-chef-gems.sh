@@ -11,6 +11,7 @@ else
   cat /etc/issue
 fi
 
+sudo /opt/chef/embedded/bin/gem install --no-rdoc --no-ri nokogiri -v '1.6.4.1' -- --use-system-libraries
 sudo /opt/chef/embedded/bin/gem install --no-rdoc --no-ri fog
 sudo /opt/chef/embedded/bin/gem install --no-rdoc --no-ri aws-sdk
 sudo /opt/chef/embedded/bin/gem install --no-rdoc --no-ri right_aws
