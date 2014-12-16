@@ -1,34 +1,12 @@
 {
   "builders": [
     {
-      "boot_command": [
-        "<esc>",
-        "<wait>linux ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/anaconda-ks.cfg<enter>"
-      ],
-      "boot_wait": "5s",
-      "disk_size": 40000,
-      "guest_os_type": "RedHat_64",
-      "headless": true,
-      "http_directory": "./http_directory",
-      "iso_checksum": "939fd1d87c11ffe7795324438b85adfb",
-      "iso_checksum_type": "md5",
-      "iso_urls": [
-        "http://mirror.cisp.com/CentOS/6.5/isos/x86_64/CentOS-6.5-x86_64-netinstall.iso",
-        "http://mirror.ubiquityservers.com/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-netinstall.iso",
-        "http://mirrors.arsc.edu/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-netinstall.iso"
-      ],
-      "output_directory": "/tmp/packer",
-      "shutdown_command": "shutdown -P now",
-      "ssh_password": "vagrant",
-      "ssh_username": "root",
-      "type": "virtualbox-iso",
-	  "guest_additions_sha256": "2b31a2b5327ed6babd510ff7edf7deb86c4286e6720357185049bbd1625ca934"
-    },
-    {
+      "type": "amazon-ebs",
       "ami_block_device_mappings": [
         {
-          "delete_on_termination": true,
-          "device_name": "/dev/sda"
+          "device_name": "/dev/sda1",
+          "volume_type": "gp2",
+          "delete_on_termination": true
         }
       ],
       "ami_name": "rhel-6_6-64_chef_packer_irving_hvm {{isotime | clean_ami_name}}",
@@ -37,11 +15,11 @@
         "us-west-2"
       ],
       "instance_type": "t2.micro",
+      "enhanced_networking": true,
       "region": "us-east-1",
-      "source_ami": "ami-61655b08",
+      "source_ami": "ami-aed06ac6",
       "ssh_timeout": "5m",
-      "ssh_username": "ec2-user",
-      "type": "amazon-ebs"
+      "ssh_username": "ec2-user"
     }
   ],
   "post-processors": [

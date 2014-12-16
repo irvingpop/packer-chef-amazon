@@ -54,6 +54,7 @@ cloud_final_modules:
  - final-message
 
 system_info:
+  distro: rhel
   default_user:
     name: ec2-user
     lock_passwd: true
@@ -67,16 +68,21 @@ system_info:
     templates_dir: /etc/cloud/templates
   ssh_svcname: sshd
 
+datasource:
+  Ec2:
+    timeout: 10
+    max_wait: 30
+
 # vim:syntax=yaml
 EOF
 
 sudo mv /etc/cloud/cloud.cfg /etc/cloud/cloud.cfg.orig
 sudo mv /tmp/cloud.cfg /etc/cloud/cloud.cfg
 
-# failsafe because cloud-init is silly
-echo "`whoami` ALL=(ALL) NOPASSWD:ALL" > /tmp/10-cloud-init-hates-me
-sudo cp /tmp/10-cloud-init-hates-me /etc/sudoers.d/
-sudo cat /etc/sudoers.d/10-cloud-init-hates-me
+# # failsafe because cloud-init is silly
+# echo "`whoami` ALL=(ALL) NOPASSWD:ALL" > /tmp/10-cloud-init-hates-me
+# sudo cp /tmp/10-cloud-init-hates-me /etc/sudoers.d/
+# sudo cat /etc/sudoers.d/10-cloud-init-hates-me
 
-# grab the latest cloud-init from CentOS
-sudo yum -y install cloud-init || exit 1
+# # grab the latest cloud-init from CentOS
+# sudo yum -y install cloud-init || exit 1
