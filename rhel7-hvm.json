@@ -1,0 +1,76 @@
+{
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "ami_block_device_mappings": [
+        {
+          "device_name": "/dev/sda1",
+          "volume_type": "gp2",
+          "delete_on_termination": true
+        }
+      ],
+      "ami_name": "rhel-7_0-64_chef_packer_irving_hvm {{isotime | clean_ami_name}}",
+      "ami_regions": [
+        "us-west-1",
+        "us-west-2"
+      ],
+      "instance_type": "t2.micro",
+      "enhanced_networking": true,
+      "region": "us-east-1",
+      "source_ami": "ami-a8d369c0",
+      "ssh_timeout": "5m",
+      "ssh_username": "ec2-user"
+    }
+  ],
+  "post-processors": [
+    {
+      "output": "boxes/rhel-7_0-64_chef_packer_irving_hvm_{{.Provider}}.box",
+      "override": {
+        "aws": {
+          "output": "boxes/rhel-7_0-64_chef_packer_irving_hvm_{{.Provider}}.box"
+        }
+      },
+      "type": "vagrant"
+    }
+  ],
+  "provisioners": [
+    {
+      "override": {
+        "amazon-ebs": {
+          "script": "provisioners/prepare-ec2-ssh-key.sh"
+        }
+      },
+      "script": "provisioners/prepare-vagrant-ssh-key.sh",
+      "type": "shell"
+    },
+    {
+      "script": "provisioners/disable-ephemeral-mounts.sh",
+      "type": "shell"
+    },
+    {
+      "script": "provisioners/disable-selinux.sh",
+      "type": "shell"
+    },
+    {
+      "script": "provisioners/cloud-init.sh",
+      "type": "shell"
+    },
+    {
+      "script": "provisioners/package-upgrades.sh",
+      "type": "shell"
+    },
+    {
+      "script": "provisioners/install-chef.sh",
+      "type": "shell"
+    },
+    {
+      "script": "provisioners/install-chef-gems.sh",
+      "type": "shell"
+    },
+    {
+      "script": "provisioners/rhel7-fixes.sh",
+      "type": "shell"
+    }
+  ]
+}
+
